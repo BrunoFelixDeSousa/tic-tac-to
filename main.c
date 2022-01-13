@@ -21,9 +21,6 @@ void printWinner(char);
 
 int main()
 {
-    char choose;
-    int start = 1;
-    
     char winner = ' ';
 
     resetBoard();
