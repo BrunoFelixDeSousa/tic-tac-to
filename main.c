@@ -21,8 +21,10 @@ void printWinner(char);
 
 int main()
 {
+    char choose;
+    int start = 1;
+    
     char winner = ' ';
-
 
     resetBoard();
 
@@ -45,7 +47,6 @@ int main()
     
     printBoard();
     printWinner(winner);
-    
 
     return 0;
 }
