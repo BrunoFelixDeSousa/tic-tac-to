@@ -110,7 +110,23 @@ void playerMove()
 
 void computerMove()
 {
+    srand(time(0));
+    int row;
+    int column;
 
+    if (checkFreeSpaces() > 0) {
+        do
+        {
+            row    = rand() % 3;
+            column = rand() % 3;
+
+        } while (board[row][column] != ' ');
+        
+        board[row][column] = COMPUTER;
+    }
+    else {
+        printWinner(' ');
+    }
 }
 
 char checkWinner()
