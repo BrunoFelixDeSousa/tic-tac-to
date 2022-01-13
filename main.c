@@ -43,6 +43,8 @@ int main()
         }
     }
     
+    printBoard();
+    printWinner(winner);
     
 
     return 0;
@@ -158,7 +160,13 @@ char checkWinner()
 
 }
 
-void printWinner(char winnner)
+void printWinner(char winner)
 {
-
+    if (winner == PLAYER) {
+        printf("VOCE VENCEU!!!\n");
+    } else if (winner == COMPUTER) {
+        printf("VOCE PERDEU!!!\n");
+    } else {
+        printf("EMPATE!!!\n");
+    }
 }
