@@ -5,8 +5,10 @@
 
 // variáveis global
 char board[3][3];
-const char PLAYER = 'X';
+const char PLAYER   = 'X';
 const char COMPUTER = 'O';
+const int  ROW      = 3;
+const int  COLUMN   = 3;
 
 void resetBoard();
 void printBoard();
@@ -25,7 +27,12 @@ int main()
     resetBoard();
 
     while(winner == ' ' && checkFreeSpaces() != 0) {
+
         printBoard();
+
+        playerMove();
+
+        winner = checkWinner();
     }
     
     
@@ -36,8 +43,8 @@ int main()
 void resetBoard()
 {
     // loop para deixar o tabuleiro limpo
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+    for (int i = 0; i < ROW; i++) {
+        for (int j = 0; j < COLUMN; j++) {
             board[i][j] = ' ';
         }
     }
@@ -57,8 +64,8 @@ int checkFreeSpaces()
 {
     int freeSpaces = 9;
 
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+    for (int i = 0; i < ROW; i++) {
+        for (int j = 0; j < COLUMN; j++) {
             if (board[i][j] != ' ') {
                 freeSpaces--;
             }
@@ -70,7 +77,27 @@ int checkFreeSpaces()
 
 void playerMove()
 {
+    int row;
+    int column;
 
+    do
+    {
+        printf("Digite linha #(1-3): ");
+        scanf("%d", &row);
+        row--; // tabuleiro inicia na posição 0
+        printf("Digite coluna #(1-3): ");
+        scanf("%d", &column);
+        column--; // tabuleiro inicia na posição 0
+
+        if (board[row][column] != ' ') {
+            printf("Movimento Invalido\n");
+        }
+        else {
+            board[row][column] = PLAYER;
+            break; 
+        }
+    } while (board[row][column] != ' ');
+    
 }
 
 void computerMove()
@@ -80,7 +107,9 @@ void computerMove()
 
 char checkWinner()
 {
-
+    for (int i = 0; i < ROW; i++) {
+        
+    }
 }
 
 void printWinner(char winnner)
