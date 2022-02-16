@@ -2,4 +2,4 @@
 *.exe
 
 ### VisualStudioCode ###
-.vscode/*
+.vscode
